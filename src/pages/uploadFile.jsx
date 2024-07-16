@@ -124,8 +124,6 @@ export default function UploadFile(){
             data.append("file", file);
         });
 
-        // fetch ('https://developer.chrome.com/docs/devtools/network/reference?utm_source=devtools&hl=ru#provisional-headers')//,{method: "POST",body:data}
-
         try {
             await fetch('https://jsonplaceholder.typicode.com/posts/1', {method: 'POST', body: data});
             downloadFiles(file);
@@ -193,27 +191,6 @@ export default function UploadFile(){
 
     }
 
-    // const useNetworkStatus = () => {
-    //     const [isOnline, setIsOnline] = useState(navigator.onLine);
-    //
-    //     useEffect(() => {
-    //         const handleOnline = () => setIsOnline(true);
-    //         const handleOffline = () => setIsOnline(false);
-    //
-    //         // Обработчики событий для обновления статуса сети
-    //         window.addEventListener('online', handleOnline);
-    //         window.addEventListener('offline', handleOffline);
-    //
-    //         // Очистка обработчиков событий при размонтировании компонента
-    //         return () => {
-    //             window.removeEventListener('online', handleOnline);
-    //             window.removeEventListener('offline', handleOffline);
-    //         };
-    //     }, []);
-    //
-    //     return isOnline;
-    // };
-
     useEffect(() => {
         syncFiles()
     }, [])
@@ -249,8 +226,6 @@ export default function UploadFile(){
                         </ul>}
                     <Button OnClick={handleSubmit} name={"Загрузить"}/>
                     <Button OnClick={handleReset} name={"Сброс"}/>
-
-                    {/*<Button OnClick={syncFiles} name={"Синхронизация"}/>*/}
 
                     <Button OnClick={deleteDatabase} name={"Очистить БД"}/>
                 </form>
